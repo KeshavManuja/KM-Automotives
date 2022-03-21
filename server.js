@@ -2,13 +2,17 @@ const express = require("express")
 
 const app = express()
 const port = process.env.PORT || 5000
-
-app.use(express.json())
+const CarRouter = require("./Controller/CarController")
 const connect = require("./db")
 
-app.get("/",async(req,res)=>{
-    res.send("Success_make_get")
-})
+
+app.use(express.json())
+
+
+
+app.use("/api/cars",CarRouter)
+
+
 
 app.listen(port,async()=>{
     try{

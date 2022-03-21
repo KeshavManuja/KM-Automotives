@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import BookingCar from "./Pages/BookingCar";
+import 'antd/dist/antd.css';
 function App() {
   return (
     <div className="App">

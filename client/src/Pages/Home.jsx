@@ -1,15 +1,46 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import DefaultLayout from '../Components/DefaultLayout'
+import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import DefaultLayout from "../Components/DefaultLayout";
+import { getAllCars } from "../Redux/Actions/Action";
+import { Button, Row, Col } from "antd";
+import Loader from "./Loader";
 
 function Home() {
-  const {cars} = useSelector(state=>state.CarReducer)
+  const { cars } = useSelector((state) => state.CarReducer);
+  const {loading} = useSelector((state)=> state.AlertReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCars());
+  }, []);
   return (
     <DefaultLayout>
-        <h2>Home</h2>
-        <h1>The length of cars array is {cars.length}</h1>
+      {loading===true && (<Loader/>)}
+      <Row justify="center" gutter={16} className="mt-5">
+        {cars.map((car) => {
+          return (
+            <Col lg={5} sm={24} xs={24}>
+              <div className="car box_shadow1 p-2">
+                <img alt="carpic" src={car.image} className="carimg" />
+
+                <div className="car-content d-flex align-items-center justify-content-between" >
+                  <div>
+                    <p> {car.name}</p>
+                    <p>{car.rentPerHour} Rent per hour/-</p>
+                  </div>
+
+                  <div >
+                    <button className="btn1 mr-1">Book now </button>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          );
+        })}
+      </Row>
     </DefaultLayout>
-  )
+  );
 }
 
-export default Home
+export default Home;
