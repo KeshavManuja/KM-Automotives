@@ -4,13 +4,14 @@ const app = express()
 const port = process.env.PORT || 5000
 const CarRouter = require("./Controller/CarController")
 const connect = require("./db")
-
+const UserRouter = require("./Controller/UserController")
 
 app.use(express.json())
 
 
 
 app.use("/api/cars",CarRouter)
+app.use("/api/users",UserRouter)
 
 
 

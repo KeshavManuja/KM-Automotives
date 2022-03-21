@@ -9,7 +9,7 @@ router.get("/getallcars", async(req,res)=> {
         // console.log("in router")
 
         const cars = await Car.find({})
-        console.log(cars)
+        // console.log(cars)
         return res.status(200).send(cars)
     }
     catch(err){

@@ -9,7 +9,7 @@ import Loader from "./Loader";
 function Home() {
   const { cars } = useSelector((state) => state.CarReducer);
   const {loading} = useSelector((state)=> state.AlertReducer);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getAllCars());
@@ -18,9 +18,9 @@ function Home() {
     <DefaultLayout>
       {loading===true && (<Loader/>)}
       <Row justify="center" gutter={16} className="mt-5">
-        {cars.map((car) => {
+        {cars.map((car,i) => {
           return (
-            <Col lg={5} sm={24} xs={24}>
+            <Col key={i} lg={5} sm={24} xs={24}>
               <div className="car box_shadow1 p-2">
                 <img alt="carpic" src={car.image} className="carimg" />
 
