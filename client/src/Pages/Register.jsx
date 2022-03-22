@@ -6,7 +6,7 @@ import { useDispatch ,useSelector} from 'react-redux'
 import { UserRegister } from '../Redux/Actions/UserActions';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import Loader from './Loader';
+import Loader from '../Components/Loader';
 // ..
 AOS.init();
 

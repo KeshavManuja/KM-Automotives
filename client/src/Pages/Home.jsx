@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import DefaultLayout from "../Components/DefaultLayout";
 import { getAllCars } from "../Redux/Actions/Action";
 import { Button, Row, Col } from "antd";
-import Loader from "./Loader";
+import Loader from "../Components/Loader";
+import { Link } from "react-router-dom";
 
 function Home() {
   const { cars } = useSelector((state) => state.CarReducer);
@@ -31,7 +32,7 @@ function Home() {
                   </div>
 
                   <div >
-                    <button className="btn1 mr-1">Book now </button>
+                  <button className="btn1 mr-2"><Link to={`/booking/${car._id}`}>Book Now</Link></button>
                   </div>
                 </div>
               </div>

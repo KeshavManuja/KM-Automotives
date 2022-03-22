@@ -52,7 +52,7 @@ p{
   box-shadow: none !important ;
   background-color: white !important;
   color: orangered !important;
-  border: 1px solid orangered; 
+  border: 1px solid orangered !important; 
   padding: 5px 10px;
 
 }
